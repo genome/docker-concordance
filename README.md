@@ -1,2 +1,2 @@
 # docker-concordance
-Repo for concordance tool Docker image
+Docker containerization of tools needed for concordance tool
