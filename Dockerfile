@@ -49,3 +49,15 @@ RUN pip install cyvcf2
 #Fisher Python Test#
 ####################
 RUN pip install FisherExact
+
+######
+#Toil#
+###### 
+RUN pip install toil[cwl]==3.6.0
+RUN sed -i 's/select\[type==X86_64 && mem/select[mem/' /usr/local/lib/python2.7/dist-packages/toil/batchSystems/lsf.py
+RUN apt-get update -y && apt-get install -y libnss-sss tzdata
+RUN ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime
+#LSF: Java bug that need to change the /etc/timezone. 
+#     The above /etc/localtime is not enough. 
+RUN echo "America/Chicago" > /etc/timezone
+RUN dpkg-reconfigure --frontend noninteractive tzdata
