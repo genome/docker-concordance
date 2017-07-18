@@ -21,7 +21,7 @@ def check_for_index(file):
 
 #execute bam-readcount
 def bam_readcount(bam_file):
-    bam_readcount_cmd = ['/opt/bam-readcount', '-f', ref_fasta, '-l', snp_file]
+    bam_readcount_cmd = ['/usr/bin/bam-readcount', '-f', ref_fasta, '-l', snp_file]
     print(ref_fasta, snp_file)
     bam_file_name = bam_file.split('/')
     output_file = os.path.join(tempdir, bam_file_name[-1] + '_rc.tsv')
